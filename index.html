@@ -101,6 +101,10 @@
           <img src="Resources/right.png" onclick="alignRight()" alt="Align Right">
           <img src="Resources/justify.png" onclick="justifyText()" alt="Justify">
 
+          <img src="Resources/undo-4-32.png" onclick="undo()" alt="Undo">
+          <img src="Resources/action-redo-32.png" onclick="redo()" alt="Redo">
+
+
         
           
         </div>
@@ -168,6 +172,16 @@
     //Justify
     function justifyText() {
       document.execCommand('justifyFull');
+    }
+
+    //Undo
+    function undo() {
+      document.execCommand('undo');
+    }
+
+    //Redo
+    function redo() {
+      document.execCommand('redo');
     }
 
     
