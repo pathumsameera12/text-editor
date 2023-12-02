@@ -8,22 +8,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Text Editor - [CT/2019/064]</title>
 </head>
 
+<style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .toolbar {
+      background-color: #333;
+      text-align: center;
+      padding: 20px 0;
+    }
+    .toolbar img {
+      width: 20px;
+      height: 20px;
+      margin: 0 15px;
+      cursor: pointer;
+      filter: brightness(0.7);
+    }
+   
+    .editor {
+      border: 1px solid #ccc;
+      min-height: 400px;
+      padding: 20px;
+      margin: 30px;
+    }
+  </style>
+</head>
 <body>
 
-    <!--  Remove this div once you are started -->
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h1>Start Your Work Here!</h1>
-                <hr>
-            </div>
+  <div>
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="toolbar">
+
+          <img src="Resources/bold-xxl.png" onclick="boldText()" alt="Bold">
+        
+          
         </div>
+      </div>
     </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="editor" contenteditable="true" id="textEditor" oninput="updateFontColor()">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+
+    //Bold
+    function boldText() {
+      document.execCommand('bold');
+    }
+
+   
+
     
+  </script>
     
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
