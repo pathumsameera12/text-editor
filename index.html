@@ -96,7 +96,10 @@
 
           </div>
 
-
+          <img src="Resources/left.png" onclick="alignLeft()" alt="Align Left">
+          <img src="Resources/center.png" onclick="alignCenter()" alt="Align Center">
+          <img src="Resources/right.png" onclick="alignRight()" alt="Align Right">
+          <img src="Resources/justify.png" onclick="justifyText()" alt="Justify">
 
         
           
@@ -145,6 +148,26 @@
         fontColor = window.getComputedStyle(parent).color;
       }
       document.getElementById('selectedColor').style.backgroundColor = fontColor;
+    }
+
+     //Align Left
+     function alignLeft() {
+      document.execCommand('justifyLeft');
+    }
+
+    //Align Center
+    function alignCenter() {
+      document.execCommand('justifyCenter');
+    }
+
+    //Align Right
+    function alignRight() {
+      document.execCommand('justifyRight');
+    }
+
+    //Justify
+    function justifyText() {
+      document.execCommand('justifyFull');
     }
 
     
