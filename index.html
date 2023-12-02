@@ -46,6 +46,8 @@
         <div class="toolbar">
 
           <img src="Resources/bold-xxl.png" onclick="boldText()" alt="Bold">
+          <img src="Resources/format_underline_white_192x192.png" onclick="underlineText()" alt="Underline" style="width: 30px; height: 30px;">
+
         
           
         </div>
@@ -65,6 +67,11 @@
     //Bold
     function boldText() {
       document.execCommand('bold');
+    }
+
+    //Underline
+    function underlineText() {
+      document.execCommand('underline');
     }
 
    
