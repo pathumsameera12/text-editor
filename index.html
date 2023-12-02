@@ -29,6 +29,45 @@
       cursor: pointer;
       filter: brightness(0.7);
     }
+
+    .color-picker {
+      display: inline-block;
+      position: relative;
+      vertical-align: middle;
+      margin: 0 15px;
+
+    }
+    .color-picker input {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+    }
+    
+    .color-letter {
+      display: inline-block;
+      font-size: 24px;
+      color: rgb(10, 103, 189);
+      cursor: pointer;
+      vertical-align: middle;
+      position: relative;
+      
+    }
+    .color-rectangle {
+      position: absolute;
+      top: 20px;
+      left: 0;
+      width: 20px;
+      height: 6px;
+      margin-top: 10px;
+      border: 1px solid #ccc;
+      display: block;
+      transform: translateX(-15%);
+
+    }
    
     .editor {
       border: 1px solid #ccc;
@@ -48,6 +87,15 @@
           <img src="Resources/bold-xxl.png" onclick="boldText()" alt="Bold">
           <img src="Resources/format_underline_white_192x192.png" onclick="underlineText()" alt="Underline" style="width: 30px; height: 30px;">
           <img src="Resources/italic-xxl.png" onclick="italicText()" alt="Italic">
+
+          <div class="color-picker">
+
+            <span class="color-letter" id="fontColorLetter">A</span>
+            <div class="color-rectangle" id="selectedColor"></div>
+            <input type="color" id="fontColorPicker" onchange="changeFontColor()">
+
+          </div>
+
 
 
         
@@ -81,6 +129,23 @@
       document.execCommand('italic');
     }
 
+
+    //Font Color Change
+    function changeFontColor() {
+      var color = document.getElementById('fontColorPicker').value;
+      document.execCommand('foreColor', false, color);
+      document.getElementById('selectedColor').style.backgroundColor = color;
+    }
+
+    function updateFontColor() {
+      var selection = window.getSelection();
+      var fontColor = 'black';
+      if (selection.focusNode && selection.focusNode.nodeType === Node.TEXT_NODE) {
+        var parent = selection.focusNode.parentNode;
+        fontColor = window.getComputedStyle(parent).color;
+      }
+      document.getElementById('selectedColor').style.backgroundColor = fontColor;
+    }
 
     
   </script>
